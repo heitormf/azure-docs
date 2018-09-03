@@ -184,12 +184,18 @@ The backup data sent to Azure Backup is encrypted to protect the confidentiality
 PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force | Set-OBMachineSetting
 PS C:\> $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 PS C:\> $PassCode   = 'AzureR0ckx'
-PS C:\> Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase
+PS C:\> $SecurityPin = '123456'
+PS C:\> Set-OBMachineSetting -EncryptionPassPhrase -SecurityPin $SecurityPin
 Server properties updated successfully
 ```
 
 > [!IMPORTANT]
 > Keep the passphrase information safe and secure once it is set. You can't restore data from Azure without this passphrase.
+>
+>
+
+> [!IMPORTANT]
+> Get your Security Pin on Azure portal at Recovery Services Vault > Settings > Properties > Generate Security Pin
 >
 >
 
